@@ -15,7 +15,7 @@ respuestas_encuesta = {pregunta: [] for pregunta in preguntas_encuesta}
 
 @app.route('/')
 def index():
-    return render_template('templates/index.html', preguntas=preguntas_encuesta)
+    return render_template('index.html', preguntas=preguntas_encuesta)
 
 @app.route('/submit', methods=['POST'])
 def submit():

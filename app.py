@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 # Lista de preguntas de la encuesta
 preguntas_encuesta = [
-    "¿Cómo calificarías nuestro servicio?",
-    "¿Cuál es tu característica favorita de nuestro producto?",
-    "¿Qué mejorarías en nuestra empresa?",
+    "¿Cómo te llamas?"
+    "¿Cuál es tu color favorito?",
+    "¿Cuál es tu asignatura favorita?",
 ]
 
 # Almacenar respuestas de la encuesta

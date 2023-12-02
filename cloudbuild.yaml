@@ -13,5 +13,5 @@ steps:
   entrypoint: python
   args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-- name: "gcr.io/cloud-builders/gunicorn"
-  args: ["-b", "0.0.0.0:8080", "application:app"]
+- name: "gcr.io/cloud-builders/uwsgi"
+  args: ["--http", ":8080", "--module", "application:app"]

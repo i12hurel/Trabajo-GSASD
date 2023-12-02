@@ -6,4 +6,4 @@ steps:
   args: ["-m", "pip", "install", "-r", "requirements.txt"]
 
 - name: "gcr.io/cloud-builders/gunicorn"
-  args: ["-b", "0.0.0.0:$PORT", "application:app"]
+  args: ["-b", "0.0.0.0:8080", "application:app"]

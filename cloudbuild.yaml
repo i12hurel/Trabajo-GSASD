@@ -5,8 +5,13 @@ steps:
 - name: "gcr.io/cloud-builders/git"
   args: ["clone", "https://github.com/i12hurel/Trabajo-GSASD", "github"]
 
-- name: "gcr.io/cloud-builders/python"
-  args: ["-m", "pip", "install", "-r", "requirements.txt"]
+- name: 'python'
+  entrypoint: 'python'
+  args: ['-m', 'pip', 'install', '--upgrade', 'pip']
+  
+- name: python
+  entrypoint: python
+  args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
 - name: "gcr.io/cloud-builders/gunicorn"
   args: ["-b", "0.0.0.0:8080", "application:app"]

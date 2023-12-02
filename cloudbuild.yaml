@@ -3,7 +3,7 @@ steps:
   args: ["rm", "-rf", "."]
   
 - name: "gcr.io/cloud-builders/git"
-  args: ["clone", "https://github.com/i12hurel/Trabajo-GSASD", "."]
+  args: ["clone", "https://github.com/i12hurel/Trabajo-GSASD", "github"]
 
 - name: "gcr.io/cloud-builders/python"
   args: ["-m", "pip", "install", "-r", "requirements.txt"]

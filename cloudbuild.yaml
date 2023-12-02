@@ -1,5 +1,8 @@
 steps:
 - name: "gcr.io/cloud-builders/git"
+  args: ["rm", "-rf", "."]
+  
+- name: "gcr.io/cloud-builders/git"
   args: ["clone", "https://github.com/i12hurel/Trabajo-GSASD", "."]
 
 - name: "gcr.io/cloud-builders/python"

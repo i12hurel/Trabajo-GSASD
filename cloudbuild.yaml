@@ -13,6 +13,6 @@ steps:
   entrypoint: python
   args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-- name: python
-  entrypoint: gunicorn
-  args: ["-b", "0.0.0.0:8080", "application:app"]
+- runtime: python
+  env: flex
+  entrypoint: gunicorn -b :8080 application:app

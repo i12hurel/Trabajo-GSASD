@@ -1,0 +1,10 @@
+runtime: python39  # Puedes ajustar según la versión de Python que estás utilizando
+
+entrypoint: gunicorn -b :$PORT application:app  # Ajusta "tu_script" según tu configuración
+
+env_variables:
+  VARIABLE_DE_ENTORNO: valor
+
+handlers:
+- url: /.*
+  script: auto

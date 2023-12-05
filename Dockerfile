@@ -7,7 +7,7 @@ WORKDIR /app
 # Copia los archivos necesarios al contenedor
 COPY requirements.txt .
 COPY application.py .
-COPY templates templates  # Asegúrate de copiar el directorio de plantillas
+COPY templates templates
 
 # Instala las dependencias
 RUN pip install --no-cache-dir -r requirements.txt

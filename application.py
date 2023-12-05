@@ -30,24 +30,6 @@ def gracias():
     return "¡Gracias por completar la encuesta!"
 
 if __name__ == '__main__':
-    # Usamos gunicorn para el servidor en lugar del servidor de desarrollo de Flask
-    from gunicorn.app.base import BaseApplication
-    class StandaloneApplication(BaseApplication):
-        def __init__(self, app, options=None):
-            self.options = options or {}
-            self.application = app
-            super(StandaloneApplication, self).__init__()
+    # Ejecutar la aplicación directamente sin configurar gunicorn
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
 
-        def load_config(self):
-            for key, value in self.options.items():
-                self.cfg.set(key, value)
-
-        def load(self):
-            return self.application
-
-    options = {
-        'bind': '0.0.0.0:8080',
-        'workers': 4  # Ajusta el número de workers según tus necesidades
-    }
-
-    StandaloneApplication(app, options).run()

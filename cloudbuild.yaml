@@ -13,3 +13,7 @@ steps:
   entrypoint: python
   args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', 'gunicorn', '--user']
 
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy", "--version", "v1"]
+  timeout: "1600s"  
+

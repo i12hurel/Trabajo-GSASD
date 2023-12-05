@@ -13,6 +13,10 @@ steps:
   entrypoint: python
   args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-- runtime: python
-  env: flex
-  entrypoint: gunicorn -b :8080 application:app
+- name: python
+  entrypoint: "bash"
+  args:  
+  -  "-c"
+  -  |
+     pip install uvicorn
+     uvicorn --port 8080 --host 0.0.0.0 application:app

@@ -7,6 +7,7 @@ WORKDIR /app
 # Copia los archivos necesarios al contenedor
 COPY requirements.txt .
 COPY application.py .
+COPY templates templates  # Asegúrate de copiar el directorio de plantillas
 
 # Instala las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
@@ -16,3 +17,4 @@ EXPOSE 8080
 
 # Ejecuta la aplicación cuando se inicia el contenedor
 CMD ["gunicorn", "application:app", "--bind", "0.0.0.0:8080", "--workers", "4"]
+

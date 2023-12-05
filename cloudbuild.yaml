@@ -1,22 +1,15 @@
 steps:
 - name: "gcr.io/cloud-builders/git"
-  args: ["rm", "-rf", "."]
-  
-- name: "gcr.io/cloud-builders/git"
   args: ["clone", "https://github.com/i12hurel/Trabajo-GSASD", "github"]
 
-- name: 'python'
+- name: 'python-install-dependencies'
   entrypoint: 'python'
   args: ['-m', 'pip', 'install', '--upgrade', 'pip']
   
-- name: python
-  entrypoint: python
+- name: 'python-install-flask'
+  entrypoint: 'python'
   args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
 
-- name: python
-  entrypoint: "bash"
-  args:  
-  -  "-c"
-  -  |
-     pip install uvicorn
-     uvicorn --port 8080 --host 0.0.0.0 application:app
+- name: 'start-uvicorn'
+  entrypoint: 'uvicorn'
+  args: ['--port', '8080', '--host', '0.0.0.0', 'github/application:app']

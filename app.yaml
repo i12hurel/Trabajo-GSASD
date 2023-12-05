@@ -5,6 +5,3 @@ entrypoint: gunicorn -b :$PORT application:app  # Ajusta "tu_script" según tu c
 env_variables:
   VARIABLE_DE_ENTORNO: valor
 
-handlers:
-- url: /.*
-  script: auto
